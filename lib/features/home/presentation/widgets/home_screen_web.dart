@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/features/home/home_exports.dart';
+
+class HomeScreenWeb extends StatelessWidget {
+  const HomeScreenWeb({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      key: key,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Flexible(child: IntroColumn()),
+              Flexible(child: FlutterLogo(size: 200)),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
