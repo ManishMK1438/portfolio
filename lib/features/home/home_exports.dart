@@ -1,9 +1,13 @@
 //domain
+export 'domain/entity/experience_entity.dart';
+export 'domain/entity/projects_entity.dart';
 //presentation
+export 'presentation/widgets/bio_section.dart';
 export 'presentation/widgets/home_screen_mobile.dart';
 export 'presentation/widgets/home_screen_tab.dart';
 export 'presentation/widgets/home_screen_web.dart';
 export 'presentation/widgets/intro_column.dart';
+export 'presentation/widgets/projects_section.dart';
 
 // features/home/home_exports.dart
 

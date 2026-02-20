@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/exports/app_exports.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class HomeScreenWeb extends StatelessWidget {
@@ -9,6 +10,8 @@ class HomeScreenWeb extends StatelessWidget {
     return SingleChildScrollView(
       key: key,
       child: Column(
+        mainAxisAlignment: .center,
+        crossAxisAlignment: .start,
         children: [
           Row(
             children: [
@@ -16,6 +19,10 @@ class HomeScreenWeb extends StatelessWidget {
               Flexible(child: FlutterLogo(size: 200)),
             ],
           ),
+          kGap60,
+          BioSection().addPadding(padding: .all(30)),
+          kGap60,
+          ProjectsSection().addPadding(padding: .all(30)),
         ],
       ),
     );
