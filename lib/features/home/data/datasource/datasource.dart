@@ -191,7 +191,7 @@ final List<SkillsEntity> skillsList = [
   ),
   SkillsEntity(
     title: "Tools",
-    icon: FontAwesomeIcons.tools,
+    icon: FontAwesomeIcons.screwdriverWrench,
     skills: ["Android studio", "Git", "Github", "VS Code", "Docker"],
   ),
   SkillsEntity(

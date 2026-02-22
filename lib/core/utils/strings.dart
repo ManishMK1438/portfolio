@@ -33,4 +33,28 @@ Associate Team Lead experienced in team coordination, sprint ownership, and code
   static const softSkills = "Soft skills";
   static const skillsSummary =
       "The core technologies, tools, and methodologies I leverage to build high-performance, maintainable software.";
+
+  static const getInTouch = "Get in touch";
+  static const getInTouchSummary =
+      "Whether you're looking to build a complex cross-platform application, discuss scalable software architecture, or just want to connect—I'd love to hear from you. Drop me a message and let's build something great.";
+  static const contactInfo = "Contact Information";
+  static const contactInfoSummary =
+      "Complete the form below, and I'll be in touch within 24 hours.";
+  static const emailData = "manishkumar01438@gmail.com";
+  static const phone = "Phone";
+  static const phoneData = "+91 9990892927";
+  static const location = "Location";
+  static const locationData = "Delhi, India";
+
+  static const nameLabel = "Full Name";
+  static const emailLabel = "Email Address";
+  static const subjectLabel = "Subject";
+  static const messageLabel = "Message";
+  static const nameHint = "John Doe";
+  static const emailHint = "hello@example.com";
+  static const subjectHint = "e.g., Flutter Project Inquiry";
+  static const messageHint =
+      "Tell me a little about your project or question...";
+
+  static const submit = "Submit";
 }

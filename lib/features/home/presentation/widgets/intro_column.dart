@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
-import 'package:portfolio/core/exports/packages_export.dart';
+import 'package:portfolio/features/home/home_exports.dart';
 
 class IntroColumn extends StatelessWidget {
   const IntroColumn({super.key});
@@ -31,21 +31,7 @@ class IntroColumn extends StatelessWidget {
           ],
         ),
         kGap10,
-        Row(
-          mainAxisAlignment: .center,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: FaIcon(FontAwesomeIcons.linkedin, color: primaryColor),
-            ),
-            IconButton(onPressed: () {}, icon: FaIcon(FontAwesomeIcons.github)),
-            IconButton(
-              onPressed: () {},
-              icon: FaIcon(FontAwesomeIcons.instagram),
-              color: Colors.red.shade900,
-            ),
-          ],
-        ),
+        SocialButtons(),
       ],
     );
   }

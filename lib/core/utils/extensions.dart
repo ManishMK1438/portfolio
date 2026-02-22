@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'constants.dart';
+import 'package:portfolio/core/exports/app_exports.dart';
 
 extension UtilsGetter on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -26,6 +25,12 @@ extension TextExtension on Text {
         child: this,
       ),
     );
+  }
+}
+
+extension ButtonExtension on PrimaryButton {
+  Widget expand() {
+    return Row(children: [Expanded(child: this)]);
   }
 }
 

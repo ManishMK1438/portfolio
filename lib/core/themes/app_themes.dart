@@ -68,6 +68,13 @@ class AppThemes {
       }),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: primaryColor, // Changes the blinking cursor
+      selectionColor: primaryColor.withValues(
+        alpha: 0.3,
+      ), // Changes the highlight color when selecting text
+      selectionHandleColor: primaryColor, // Changes the mobile drag handles
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
     ),
