@@ -74,17 +74,9 @@ class BioSection extends StatelessWidget {
       mainAxisSize: .min,
       children: [
         Text(AppStrings.aboutMe, style: context.textTheme.headlineMedium),
-        kGap30,
-        Row(
-          children: [
-            FaIcon(FontAwesomeIcons.fileLines),
-            kGap10,
-            Text(AppStrings.bio, style: context.textTheme.headlineSmall),
-          ],
-        ),
-        kGap30,
+        kGap10,
         Text(AppStrings.bioSummary, style: context.textTheme.bodyMedium),
-        kGap60,
+        kGap30,
         Row(
           children: [
             FaIcon(FontAwesomeIcons.clockRotateLeft),

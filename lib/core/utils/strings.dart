@@ -27,5 +27,10 @@ Associate Team Lead experienced in team coordination, sprint ownership, and code
   static const background = "Background";
   static const projects = "Projects";
   static const projectsSummary =
-      "Here are some of the key projects that I've worked on from scratch.";
+      "A curated selection of cross-platform applications I’ve architected and developed from the ground up.";
+  static const skills = "Skills";
+  static const coreSkills = "Core skills";
+  static const softSkills = "Soft skills";
+  static const skillsSummary =
+      "The core technologies, tools, and methodologies I leverage to build high-performance, maintainable software.";
 }

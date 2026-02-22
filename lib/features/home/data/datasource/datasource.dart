@@ -1,4 +1,5 @@
 import 'package:portfolio/core/exports/app_exports.dart';
+import 'package:portfolio/core/exports/packages_export.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 final List<ExperienceEntity> experienceData = [
@@ -11,10 +12,10 @@ final List<ExperienceEntity> experienceData = [
   ),
   ExperienceEntity(
     heading: AppStrings.experience,
-    title: "Flutter developer",
-    company: "Locgfx Pvt. Ltd.",
-    duration: "Feb 2022 - July 2023",
-    location: "Delhi (On-site)",
+    title: "Associate Team Lead",
+    company: "Goolean Technologies Pvt. Ltd.",
+    duration: "May 2024 - Jan 2026",
+    location: "Gurugram (On-Site)",
   ),
   ExperienceEntity(
     heading: AppStrings.experience,
@@ -25,10 +26,10 @@ final List<ExperienceEntity> experienceData = [
   ),
   ExperienceEntity(
     heading: AppStrings.experience,
-    title: "Associate Team Lead",
-    company: "Goolean Technologies Pvt. Ltd.",
-    duration: "May 2024 - Jan 2026",
-    location: "Gurugram (On-Site)",
+    title: "Flutter developer",
+    company: "Locgfx Pvt. Ltd.",
+    duration: "Feb 2022 - July 2023",
+    location: "Delhi (On-site)",
   ),
 ];
 
@@ -110,6 +111,99 @@ final List<ProjectsEntity> projectsData = [
       "Shared preferences",
       "Riverpod",
       "Razorpay",
+    ],
+  ),
+  ProjectsEntity(
+    title: "Ataraxis",
+    description: "Live doctor consulting and appointment booking",
+    playStore: "",
+    appStore: "",
+    image: "",
+    technologies: [
+      "Flutter",
+      "Dart",
+      "REST api",
+      "Web socket",
+      "Agora SDK video calling",
+      "FCM",
+      "Shared preferences",
+      "Stripe",
+    ],
+  ),
+  ProjectsEntity(
+    title: "Kidseau",
+    description:
+        "School management app - attendance marking, report cards, performance charts, time table and more",
+    playStore: "",
+    appStore: "",
+    image: "",
+    technologies: [
+      "Flutter",
+      "Dart",
+      "REST api",
+      "FCM",
+      "Shared preferences",
+      "Stripe",
+    ],
+  ),
+];
+
+final List<SkillsEntity> skillsList = [
+  SkillsEntity(
+    title: "Mobile",
+    icon: FontAwesomeIcons.mobile,
+    skills: [
+      "Flutter",
+      "Dart",
+      "Android",
+      "iOS",
+      "Web",
+      "Clean architecture",
+      "Bloc",
+    ],
+  ),
+  SkillsEntity(
+    title: "Backend & APIs",
+    icon: FontAwesomeIcons.server,
+    skills: ["REST api", "Json", "Python", "FastAPI", "Web socket"],
+  ),
+  SkillsEntity(
+    title: "Realtime & media",
+    icon: FontAwesomeIcons.video,
+    skills: ["Agora SDK", "Video calling", "Live streaming", "Video player"],
+  ),
+  SkillsEntity(
+    title: "Cloud & services",
+    icon: FontAwesomeIcons.cloud,
+    skills: [
+      "Firebase auth",
+      "Firebase storage",
+      "FCM",
+      "Firestore",
+      "AWS",
+      "Third party logins",
+    ],
+  ),
+  SkillsEntity(
+    title: "Payments & storage",
+    icon: FontAwesomeIcons.creditCard,
+    skills: ["Razorpay", "Stripe", "Hive", "Shared preferences"],
+  ),
+  SkillsEntity(
+    title: "Tools",
+    icon: FontAwesomeIcons.tools,
+    skills: ["Android studio", "Git", "Github", "VS Code", "Docker"],
+  ),
+  SkillsEntity(
+    title: "Soft skills",
+    icon: FontAwesomeIcons.brain,
+    skills: [
+      "Leadership",
+      "Problem solving",
+      "Accountability",
+      "Clean code practices",
+      "Team collaboration",
+      "Fast learner",
     ],
   ),
 ];

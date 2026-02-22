@@ -27,11 +27,15 @@ class ProjectsSection extends StatelessWidget {
               children: [
                 Text(project.title, style: context.textTheme.headlineSmall),
 
-                Text(
-                  project.description,
-                  style: context.textTheme.bodyMedium,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    project.description,
+                    style: context.textTheme.bodyMedium,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.start,
+                    maxLines: 3,
+                  ),
                 ),
 
                 Wrap(
@@ -86,7 +90,7 @@ class ProjectsSection extends StatelessWidget {
       mainAxisSize: .min,
       children: [
         Text(AppStrings.projects, style: context.textTheme.headlineMedium),
-        kGap30,
+        kGap10,
         Text(AppStrings.projectsSummary, style: context.textTheme.bodyMedium),
         kGap30,
         UniversalGridView<ProjectsEntity>(

@@ -23,6 +23,8 @@ class HomeScreenWeb extends StatelessWidget {
           BioSection().addPadding(padding: .all(30)),
           kGap60,
           ProjectsSection().addPadding(padding: .all(30)),
+          kGap60,
+          SkillsSection().addPadding(padding: .all(30)),
         ],
       ),
     );
