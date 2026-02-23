@@ -13,5 +13,6 @@ export 'package:portfolio/core/widgets/builders/universal_grid_view.dart';
 export 'package:portfolio/core/widgets/builders/universal_list_view.dart';
 export 'package:portfolio/core/widgets/buttons/primary_buttons.dart';
 export 'package:portfolio/core/widgets/buttons/secondary_button.dart';
+export 'package:portfolio/core/widgets/logo/logo.dart';
 export 'package:portfolio/core/widgets/text_fields/custom_field.dart';
 export 'package:portfolio/core/widgets/universal_layouts/responsive_layout.dart';

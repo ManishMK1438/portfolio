@@ -60,13 +60,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       // WEB/TABLET: Shows an Image instead of a drawer icon
       web: Container(
+        padding: .symmetric(horizontal: kAppPadding),
         color: primaryColor,
         width: double.infinity,
         height: kToolbarHeight,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const FlutterLogo(size: 50),
+            Logo(scale: 15),
             Row(
               children: [
                 TextButton(

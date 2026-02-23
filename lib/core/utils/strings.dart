@@ -57,4 +57,15 @@ Associate Team Lead experienced in team coordination, sprint ownership, and code
       "Tell me a little about your project or question...";
 
   static const submit = "Submit";
+  static const footerText =
+      "Engineering elegant applications with a focus on seamless user experiences and robust software architecture.";
+  static const copyright =
+      "Copyright © 2026 Manish Kumar. All rights reserved.";
+  static const buildWith = "Built with Flutter and Firebase";
+}
+
+class AppImages {
+  AppImages._();
+
+  static const logo = "assets/images/logo.png";
 }
