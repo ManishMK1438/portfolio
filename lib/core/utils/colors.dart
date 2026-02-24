@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xff0256c6);
+const primaryColor = Color(0xff2B6CEE);
 const secondaryGreenColor = Color(0xff3B9212);
-const primaryLightColor = Color(0xff9abbe8);
+const primaryLightColor = Color(0xff5EC8F8);
 const textButtonOverlayColor = Color(0x4DFFFFFF);
-final lightScaffoldColor = Colors.grey.shade200;
+final lightScaffoldColor = Color(0xffFAFAFA);
+const descriptionTextColor = Color(0xff475569);
+
 const darkScaffoldColor = Colors.black;
 const lightHeadlineColor = Colors.black;
 const lightTitleColor = Colors.black;
@@ -38,7 +40,7 @@ const kOrangeGrad2 = Color(0xffFD575B);
 
 const kCardGrad1 = Color(0xffFFFFFF);
 const kCardGrad2 = Color(0xffC4C4C4);
-const kWhite = Colors.white;
+const kWhite = Color(0xffFAFAFA);
 const k3BB54A = Color(0xff3BB54A);
 
 const kFF1F1F = Color(0xffFF1F1F);

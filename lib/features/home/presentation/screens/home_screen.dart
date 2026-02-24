@@ -12,8 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor.withValues(alpha: 0.1),
-      appBar: CustomAppBar(title: ""),
+      appBar: CustomAppBar(title: AppStrings.portfolio),
       body: PageStorage(
         bucket: _homeBucket,
         child: ResponsiveLayout(

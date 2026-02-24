@@ -15,12 +15,12 @@ class AppButtonThemes {
       // Adaptive padding based on input method (Mouse vs Touch)
       padding: EdgeInsets.symmetric(
         vertical: PlatformInfo.isDesktopStyle ? 20.0 : kButtonPadding,
-        horizontal: PlatformInfo.isDesktopStyle ? 24.0 : kButtonPadding,
+        horizontal: PlatformInfo.isDesktopStyle ? 32.0 : kButtonPadding,
       ),
       foregroundColor: lightButtonForegroundColor,
       backgroundColor: lightButtonBackgroundColor,
       overlayColor: Colors.white30,
-      textStyle: AppTextTheme.getTheme(context, isLight: true).labelLarge,
+      textStyle: AppTextTheme.getTheme(context, isLight: true).titleSmall,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           PlatformInfo.isDesktopStyle ? 8.0 : 12.0,

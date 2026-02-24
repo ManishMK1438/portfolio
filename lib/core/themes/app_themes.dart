@@ -48,10 +48,10 @@ class AppThemes {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         padding: EdgeInsets.symmetric(
           vertical: PlatformInfo.isDesktopStyle ? 20.0 : kButtonPadding,
-          horizontal: PlatformInfo.isDesktopStyle ? 24.0 : kButtonPadding,
+          horizontal: PlatformInfo.isDesktopStyle ? 32.0 : kButtonPadding,
         ),
         // Ensures text style matches your AppTextTheme
-        textStyle: AppTextTheme.getTheme(context, isLight: true).labelLarge,
+        textStyle: AppTextTheme.getTheme(context, isLight: true).titleSmall,
       ),
     ),
     /*appBarTheme: const AppBarTheme(

@@ -11,6 +11,7 @@ export 'presentation/widgets/home_screen_mobile.dart';
 export 'presentation/widgets/home_screen_tab.dart';
 export 'presentation/widgets/home_screen_web.dart';
 export 'presentation/widgets/intro_column.dart';
+export 'presentation/widgets/myself_widget.dart';
 export 'presentation/widgets/projects_section.dart';
 export 'presentation/widgets/skills_section.dart';
 export 'presentation/widgets/social_buttons.dart';

@@ -24,7 +24,7 @@ class Logo extends StatelessWidget {
     return Image.asset(
       image ?? AppImages.logo,
       scale: scale ?? 8,
-      color: color ?? kWhite,
+      color: color ?? primaryColor,
       height: height,
       width: width,
       fit: fit ?? BoxFit.contain,

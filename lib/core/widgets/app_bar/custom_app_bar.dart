@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app_icons_icons.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,26 +23,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     // this.globalKey,
     this.actions,
   });
-  /*
   ButtonStyle _buttonStyle({
     required BuildContext context,
-    required String path,
+    // required String path,
   }) {
     return TextButton.styleFrom(
       // Check our helper to decide the color
-      backgroundColor: HelperFunctions.isRouteActive(context, path)
-          ? textButtonOverlayColor
-          : Colors.transparent, // Explicitly set transparent if not active
+      backgroundColor:
+          Colors.transparent, // Explicitly set transparent if not active
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       // MOBILE: Shows the Drawer Menu Icon
       mobile: AppBar(
-        backgroundColor: primaryColor,
-        title: Text(title, style: TextStyle(color: kWhite)),
+        backgroundColor: lightScaffoldColor,
+        title: Text(title, style: context.textTheme.titleMedium),
         // Flutter automatically shows the drawer icon if a Scaffold has a drawer
         leading: Builder(
           builder: (newContext) => IconButton(
@@ -61,59 +60,66 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       // WEB/TABLET: Shows an Image instead of a drawer icon
       web: Container(
         padding: .symmetric(horizontal: kAppPadding),
-        color: primaryColor,
+        color: lightScaffoldColor,
         width: double.infinity,
         height: kToolbarHeight,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Logo(scale: 15),
+            Row(
+              children: [
+                Logo(scale: 15),
+                kGap10,
+                Text(title, style: context.textTheme.titleMedium),
+              ],
+            ),
             Row(
               children: [
                 TextButton(
                   onPressed: () {
                     //context.goNamed(AppRouteName.home);
                   },
-                  /*style: _buttonStyle(
-                    context: context,
-                    path: AppRoutePath.home,
-                  ),*/
+                  style: _buttonStyle(context: context),
                   child: Text(
                     AppStrings.home,
                     style: context.textTheme.bodyMedium?.copyWith(
-                      color: kWhite,
+                      color: descriptionTextColor,
+                      fontSize: 14,
                     ),
                   ),
                 ),
               ],
             ),
 
-            SizedBox(
-              width: 100,
-              child: PrimaryButton(
-                text: AppStrings.downloadCV,
-                onTap: () {},
-                buttonStyle: ElevatedButton.styleFrom(
-                  foregroundColor: lightButtonBackgroundColor,
-                  backgroundColor: lightButtonForegroundColor,
-                  textStyle: context.textTheme.bodySmall,
-                  padding: .symmetric(vertical: 16),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    AppIcons.theme,
+                    size: 18,
+                    color: descriptionTextColor,
+                  ),
                 ),
-              ),
+                kGap10,
+                SizedBox(
+                  width: 100,
+                  child: PrimaryButton(
+                    text: AppStrings.downloadCV,
+                    onTap: () {},
+                    buttonStyle: ElevatedButton.styleFrom(
+                      foregroundColor: lightButtonForegroundColor,
+                      backgroundColor: lightButtonBackgroundColor,
+                      textStyle: context.textTheme.bodySmall,
+                      padding: .symmetric(vertical: 16),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
-      /*AppBar(
-        leadingWidth: 100, // Give space for the branding image
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: const FlutterLogo(),
-        ),
-        title: Text(title),
-        automaticallyImplyLeading:
-            false, // Prevents the drawer icon from appearing
-      ),*/
     );
   }
 

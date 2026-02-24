@@ -5,25 +5,64 @@ import 'package:portfolio/features/home/home_exports.dart';
 class IntroColumn extends StatelessWidget {
   const IntroColumn({super.key});
 
+  Widget _available(BuildContext context) => Chip(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(100),
+      side: BorderSide(color: primaryColor.withValues(alpha: 0.1)),
+    ),
+    padding: .symmetric(vertical: 4, horizontal: 12),
+    label: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.circle, size: 8, color: primaryColor),
+        kGap5,
+        Text(
+          AppStrings.availableForProjects,
+          style: context.textTheme.bodyMedium?.copyWith(color: primaryColor),
+        ),
+      ],
+    ),
+    backgroundColor: primaryColor.withValues(alpha: 0.05),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: .center,
+      crossAxisAlignment: .start,
       children: [
-        Text(AppStrings.heyThere, style: context.textTheme.titleMedium),
-        kGap10,
-        Text(AppStrings.manishKumar, style: context.textTheme.headlineLarge),
-        kGap10,
-        Text(
-          AppStrings.seniorFlutterDeveloper,
-          style: context.textTheme.bodyLarge,
+        _available(context),
+        kGap30,
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: "${AppStrings.senior} ",
+                style: context.textTheme.headlineLarge?.copyWith(fontSize: 60),
+              ),
+              TextSpan(
+                text: " ${AppStrings.flutter} \n",
+                style: context.textTheme.headlineLarge?.copyWith(
+                  fontSize: 60,
+                  color: primaryLightColor,
+                ),
+              ),
+              TextSpan(
+                text: AppStrings.developer,
+                style: context.textTheme.headlineLarge?.copyWith(fontSize: 60),
+              ),
+            ],
+          ),
         ),
-        kGap10,
-        Text(AppStrings.desc, style: context.textTheme.bodySmall),
-        kGap10,
-
+        kGap25,
+        Text(
+          AppStrings.introDescription,
+          style: context.textTheme.titleMedium?.copyWith(
+            color: descriptionTextColor,
+            fontWeight: .normal,
+          ),
+        ),
+        kGap25,
         Row(
-          mainAxisAlignment: .center,
           children: [
             PrimaryButton(text: AppStrings.contactMe, onTap: () {}),
             kGap10,
@@ -31,7 +70,7 @@ class IntroColumn extends StatelessWidget {
           ],
         ),
         kGap10,
-        SocialButtons(),
+        SocialButtons(mainAxisAlignment: .start),
       ],
     );
   }
