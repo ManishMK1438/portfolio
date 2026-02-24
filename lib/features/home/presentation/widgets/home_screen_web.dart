@@ -19,32 +19,13 @@ class HomeScreenWeb extends StatelessWidget {
               Flexible(child: IntroColumn()),
               Flexible(
                 child: Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.15),
-                          spreadRadius:
-                              -5, // Shrinks the shadow to prevent top/left bleeding
-                          blurRadius: 20, // Softens the shadow
-                          offset: const Offset(
-                            20,
-                            20,
-                          ), // Pushes the shadow RIGHT and DOWN
-                        ),
-                      ],
-                      /* image: DecorationImage(
-                        image: AssetImage(AppImages.introImage),
-                      ),*/
-                    ),
-                    child: Image.asset(AppImages.introImage),
-                  ),
+                  child: Image.asset(AppImages.introImage).addShadow(),
                 ),
               ),
             ],
           ).addPadding(padding: .symmetric(horizontal: kWebPadding)),
           kGap100,
-          BioSection().addPadding(padding: .all(kWebPadding)),
+          BioSection(),
           kGap60,
           ProjectsSection().addPadding(padding: .all(30)),
           kGap60,

@@ -49,6 +49,31 @@ extension WidgetExtensions on Widget {
     );
   }
 
+  Widget addShadow({
+    Color? color,
+    double? blurRadius,
+    double? spreadRadius,
+    Offset? offset,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: color ?? Colors.black.withValues(alpha: 0.15),
+            spreadRadius:
+                spreadRadius ??
+                -5, // Shrinks the shadow to prevent top/left bleeding
+            blurRadius: blurRadius ?? 20, // Softens the shadow
+            offset:
+                offset ??
+                const Offset(20, 20), // Pushes the shadow RIGHT and DOWN
+          ),
+        ],
+      ),
+      child: this,
+    );
+  }
+
   Widget drawerDecoration({required BuildContext context}) {
     return SafeArea(
       child: Container(

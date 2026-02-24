@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
 import 'package:portfolio/core/exports/packages_export.dart';
-import 'package:portfolio/features/home/data/datasource/datasource.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class BioSection extends StatelessWidget {
@@ -69,34 +68,62 @@ class BioSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: .start,
-      mainAxisSize: .min,
-      children: [
-        Text(AppStrings.aboutMe, style: context.textTheme.headlineMedium),
-        kGap10,
-        Text(AppStrings.bioSummary, style: context.textTheme.bodyMedium),
-        kGap30,
-        Row(
-          children: [
-            FaIcon(FontAwesomeIcons.clockRotateLeft),
-            kGap10,
-            Text(AppStrings.background, style: context.textTheme.headlineSmall),
-          ],
-        ),
-        kGap30,
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 250),
-          child: UniversalListView<ExperienceEntity>.separated(
-            padding: .all(0),
-            scrollDirection: Axis.horizontal,
-            items: experienceData,
-            itemBuilder: (context, item, index) =>
-                _experienceWidget(experience: item, context: context),
-            separatorBuilder: (context, item, index) => kGap30,
+    return Container(
+      color: Colors.white,
+      padding: .symmetric(horizontal: kWebPadding, vertical: 80),
+      child: Column(
+        crossAxisAlignment: .start,
+        mainAxisSize: .min,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                // 1. Align prevents the Container from stretching horizontally!
+                child: Align(
+                  alignment:
+                      Alignment.centerLeft, // Keeps the image on the left side
+                  child:
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          AppImages.resume1,
+                          height: 500,
+                          // 2. Change to 'cover' to ensure the image perfectly fills the shadow box bounds
+                          fit: BoxFit.cover,
+                        ),
+                      ).addShadow(
+                        color: primaryColor.withValues(alpha: 0.2),
+                        blurRadius: 40,
+                        spreadRadius: 5,
+                        offset: const Offset(200, 0),
+                      ),
+                ),
+              ),
+              kGap50,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: .start,
+                  children: [
+                    Text(
+                      AppStrings.bio,
+                      style: context.textTheme.headlineLarge?.copyWith(
+                        fontSize: 36,
+                      ),
+                    ),
+                    kGap25,
+                    Text(
+                      AppStrings.bioSummary,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: descriptionTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

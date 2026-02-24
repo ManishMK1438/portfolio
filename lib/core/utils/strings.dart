@@ -12,11 +12,9 @@ class AppStrings {
   static const email = "Email";
   static const viewProjects = "View Projects";
   static const aboutMe = "About me";
-  static const bio = "Bio";
+  static const bio = "Architecting Robust Mobile \nApplications";
   static const bioSummary =
-      """Senior Flutter Developer with 4 years of experience delivering scalable, high-performance Android and iOS applications using Clean Architecture and BLoC. Strong background in real-time systems, background services, and production deployments. 
-
-Associate Team Lead experienced in team coordination, sprint ownership, and code quality governance, with end-to-end responsibility for mobile project delivery. Worked closely with AI and backend teams to integrate Python & FastAPI-based recruitment systems. Strong advocate of clean architecture, mentoring, and reliable delivery of business-critical mobile solutions.""";
+      "Senior Flutter Developer with 4+ years of experience engineering scalable, high-performance iOS and Android applications. Specializing in Clean Architecture and BLoC, I build robust solutions across demanding domains—from dynamic stock platforms and real-time news to live Wi-Fi attendance tracking and critical security systems. I thrive on deep technical rigor, seamlessly integrating payment gateways, live video calling, and continuous background services.\n\nAs an Associate Team Lead, I drive end-to-end mobile project delivery. I take pride in owning sprint lifecycles, enforcing strict code quality governance, and mentoring developers. By collaborating closely with cross-functional teams, I ensure complex server-side integrations translate into intuitive, maintainable, and business-critical mobile interfaces.";
 
   static const education = "Education";
   static const bca = "Bachelor in Computer Applications";
@@ -77,4 +75,6 @@ class AppImages {
 
   static const logo = "assets/images/logo.png";
   static const introImage = "assets/images/intro_image.png";
+  static const resume1 = "assets/images/resume1.jpg";
+  static const resume2 = "assets/images/resume2.jpg";
 }
