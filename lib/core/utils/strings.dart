@@ -23,7 +23,7 @@ class AppStrings {
   static const marks = "CGPA: 8.0";
   static const experience = "Experience";
   static const background = "Background";
-  static const projects = "Projects";
+  static const projects = "Featured Projects";
   static const projectsSummary =
       "A curated selection of cross-platform applications I’ve architected and developed from the ground up.";
   static const skills = "Technical Proficiency";

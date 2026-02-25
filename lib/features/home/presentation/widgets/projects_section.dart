@@ -14,50 +14,39 @@ class ProjectsSection extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: .all(.circular(kBorderRadius16)),
+        side: BorderSide(color: primaryColor.withValues(alpha: 0.2)),
       ),
-      child: Column(
+      child: Row(
         children: [
           Expanded(child: Image.asset(project.image)),
+          kGap40,
           Expanded(
-            flex: 2,
             child: Column(
               crossAxisAlignment: .start,
               mainAxisAlignment: .spaceBetween,
               mainAxisSize: .min,
               children: [
-                Text(project.title, style: context.textTheme.headlineSmall),
-
+                Text(project.title, style: context.textTheme.titleLarge),
+                kGap20,
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     project.description,
-                    style: context.textTheme.bodyMedium,
-                    overflow: TextOverflow.ellipsis,
+                    style: context.textTheme.bodyMedium?.copyWith(
+                      color: descriptionTextColor,
+                    ),
                     textAlign: TextAlign.start,
-                    maxLines: 3,
                   ),
                 ),
-
+                kGap20,
                 Wrap(
                   spacing: 10,
                   runSpacing: 10,
                   children: project.technologies.map((technology) {
-                    return Chip(
-                      backgroundColor: primaryLightColor.withValues(alpha: 0.5),
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: primaryLightColor, width: 1),
-                        borderRadius: .all(.circular(kBorderRadius16)),
-                      ),
-                      label: Text(
-                        technology,
-                        style: context.textTheme.labelSmall?.copyWith(
-                          color: primaryColor,
-                        ),
-                      ),
-                    );
+                    return AppChip(label: technology);
                   }).toList(),
                 ),
-
+                kGap20,
                 Row(
                   mainAxisAlignment: .spaceBetween,
                   children: [
@@ -79,28 +68,38 @@ class ProjectsSection extends StatelessWidget {
             ).addPadding(padding: .all(kAppPadding)),
           ),
         ],
-      ),
+      ).addPadding(padding: .all(25)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: .start,
-      mainAxisSize: .min,
-      children: [
-        Text(AppStrings.projects, style: context.textTheme.headlineMedium),
-        kGap10,
-        Text(AppStrings.projectsSummary, style: context.textTheme.bodyMedium),
-        kGap30,
-        UniversalGridView<ProjectsEntity>(
-          isInsideScrollview: true,
-          crossAxisCount: 3,
-          items: projectsData,
-          itemBuilder: (context, item, index) =>
-              _projectWidget(project: item, context: context),
-        ),
-      ],
+    return Container(
+      padding: .symmetric(horizontal: kWebPadding, vertical: 80),
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: .start,
+        mainAxisSize: .min,
+        children: [
+          Text(AppStrings.projects, style: context.textTheme.headlineMedium),
+          kGap15,
+          Text(
+            AppStrings.projectsSummary,
+            style: context.textTheme.titleMedium?.copyWith(
+              color: descriptionTextColor,
+              fontWeight: .w400,
+            ),
+          ),
+          kGap30,
+          UniversalListView<ProjectsEntity>.separated(
+            separatorBuilder: (context, item, index) => kGap20,
+            shrinkWrap: true,
+            items: projectsData,
+            itemBuilder: (context, item, index) =>
+                _projectWidget(project: item, context: context),
+          ),
+        ],
+      ),
     );
   }
 }

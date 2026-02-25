@@ -42,15 +42,7 @@ class SkillsSection extends StatelessWidget {
               spacing: 10.0, // Horizontal space between chips
               runSpacing: 10.0, // Vertical space between lines
               children: skill.skills.map((skill) {
-                return Chip(
-                  backgroundColor: descriptionTextColor.withValues(alpha: 0.05),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: primaryLightColor, width: 1),
-                    borderRadius: .all(.circular(4)),
-                  ),
-                  label: Text(skill),
-                  labelStyle: context.textTheme.bodySmall,
-                );
+                return AppChip(label: skill);
               }).toList(),
             ),
           ],
