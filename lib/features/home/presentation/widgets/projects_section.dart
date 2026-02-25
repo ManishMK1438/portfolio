@@ -10,64 +10,71 @@ class ProjectsSection extends StatelessWidget {
   Widget _projectWidget({
     required ProjectsEntity project,
     required BuildContext context,
+    required int index,
   }) {
+    // 1. Extract the Image into its own variable
+    final imageSection = Expanded(child: Image.asset(project.image));
+
+    // 2. Extract the Details Column into its own variable
+    final detailsSection = Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(project.title, style: context.textTheme.titleLarge),
+          kGap20,
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              project.description,
+              style: context.textTheme.bodyMedium?.copyWith(
+                color: descriptionTextColor,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+          kGap20,
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: project.technologies.map((technology) {
+              return AppChip(label: technology);
+            }).toList(),
+          ),
+          kGap20,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (project.playStore.isNotEmpty)
+                PrimaryButton.icon(
+                  text: "Play store",
+                  icon: FontAwesomeIcons.googlePlay,
+                  onTap: () {},
+                ),
+              if (project.appStore.isNotEmpty)
+                SecondaryButton.icon(
+                  text: "App store",
+                  icon: FontAwesomeIcons.appStore,
+                  onTap: () {},
+                ),
+            ],
+          ),
+        ],
+      ).addPadding(padding: .all(kAppPadding)),
+    );
+
     return Card(
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: .all(.circular(kBorderRadius16)),
         side: BorderSide(color: primaryColor.withValues(alpha: 0.2)),
       ),
       child: Row(
-        children: [
-          Expanded(child: Image.asset(project.image)),
-          kGap40,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: .start,
-              mainAxisAlignment: .spaceBetween,
-              mainAxisSize: .min,
-              children: [
-                Text(project.title, style: context.textTheme.titleLarge),
-                kGap20,
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    project.description,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: descriptionTextColor,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ),
-                kGap20,
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: project.technologies.map((technology) {
-                    return AppChip(label: technology);
-                  }).toList(),
-                ),
-                kGap20,
-                Row(
-                  mainAxisAlignment: .spaceBetween,
-                  children: [
-                    if (project.playStore.isNotEmpty)
-                      PrimaryButton.icon(
-                        text: "Play store",
-                        icon: FontAwesomeIcons.googlePlay,
-                        onTap: () {},
-                      ),
-                    if (project.appStore.isNotEmpty)
-                      SecondaryButton.icon(
-                        text: "App store",
-                        icon: FontAwesomeIcons.appStore,
-                        onTap: () {},
-                      ),
-                  ],
-                ),
-              ],
-            ).addPadding(padding: .all(kAppPadding)),
-          ),
-        ],
+        // 3. Conditionally arrange the children based on the index
+        children: index.isOdd
+            ? [imageSection, kGap40, detailsSection]
+            : [detailsSection, kGap40, imageSection],
       ).addPadding(padding: .all(25)),
     );
   }
@@ -96,7 +103,7 @@ class ProjectsSection extends StatelessWidget {
             shrinkWrap: true,
             items: projectsData,
             itemBuilder: (context, item, index) =>
-                _projectWidget(project: item, context: context),
+                _projectWidget(project: item, context: context, index: index),
           ),
         ],
       ),

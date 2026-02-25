@@ -16,15 +16,31 @@ class ContactMeSection extends StatelessWidget {
       crossAxisAlignment: .start,
       mainAxisAlignment: .start,
       children: [
-        FaIcon(icon, color: primaryColor),
+        Container(
+          padding: .all(6),
+          decoration: BoxDecoration(
+            borderRadius: .circular(8),
+            color: Colors.white24,
+          ),
+          child: FaIcon(icon, color: Colors.white, size: 18),
+        ),
         kGap20,
         Column(
           mainAxisAlignment: .start,
           crossAxisAlignment: .start,
           mainAxisSize: .min,
+
           children: [
-            Text(text, style: context.textTheme.titleSmall),
-            Text(data, style: context.textTheme.bodySmall),
+            Text(
+              text,
+              style: context.textTheme.titleSmall?.copyWith(
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              data,
+              style: context.textTheme.bodySmall?.copyWith(color: Colors.white),
+            ),
           ],
         ),
       ],
@@ -33,63 +49,86 @@ class ContactMeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: .min,
-      mainAxisAlignment: .start,
-      crossAxisAlignment: .start,
-      children: [
-        Text(AppStrings.getInTouch, style: context.textTheme.headlineMedium),
-        kGap10,
-        Text(AppStrings.getInTouchSummary, style: context.textTheme.bodyMedium),
-        kGap50,
-        Row(
-          crossAxisAlignment: .start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: .start,
-                mainAxisAlignment: .start,
-                children: [
-                  Text(
-                    AppStrings.contactInfo,
-                    style: context.textTheme.titleMedium,
+    return Container(
+      padding: .all(48),
+      decoration: BoxDecoration(
+        color: primaryColor,
+        borderRadius: .circular(24),
+      ),
+      child: Row(
+        mainAxisAlignment: .start,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text(
+                  AppStrings.letsBuildTogether,
+                  style: context.textTheme.headlineMedium?.copyWith(
+                    fontWeight: .bold,
+                    color: Colors.white,
                   ),
-                  kGap10,
-                  Text(
-                    AppStrings.contactInfoSummary,
-                    style: context.textTheme.bodyMedium,
+                ),
+                kGap25,
+                Text(
+                  AppStrings.getInTouchSummary,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: Colors.white.withValues(alpha: 0.9),
                   ),
-                  kGap40,
-                  _contactWidget(
-                    icon: FontAwesomeIcons.envelope,
-                    text: AppStrings.email,
-                    data: AppStrings.emailData,
-                    context: context,
-                  ),
-                  kGap20,
-                  _contactWidget(
-                    icon: FontAwesomeIcons.phone,
-                    text: AppStrings.phone,
-                    data: AppStrings.phoneData,
-                    context: context,
-                  ),
-                  kGap20,
-                  _contactWidget(
-                    icon: FontAwesomeIcons.locationArrow,
-                    text: AppStrings.location,
-                    data: AppStrings.locationData,
-                    context: context,
-                  ),
-                  kGap20,
-                  SocialButtons(mainAxisAlignment: .start),
-                ],
-              ),
+                ),
+                kGap30,
+                Row(
+                  crossAxisAlignment: .start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: .start,
+                        mainAxisAlignment: .start,
+                        children: [
+                          Text(
+                            AppStrings.contactInfo,
+                            style: context.textTheme.titleMedium?.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                          kGap20,
+                          _contactWidget(
+                            icon: FontAwesomeIcons.envelope,
+                            text: AppStrings.email,
+                            data: AppStrings.emailData,
+                            context: context,
+                          ),
+                          kGap10,
+                          _contactWidget(
+                            icon: FontAwesomeIcons.phone,
+                            text: AppStrings.phone,
+                            data: AppStrings.phoneData,
+                            context: context,
+                          ),
+                          kGap10,
+                          _contactWidget(
+                            icon: FontAwesomeIcons.locationArrow,
+                            text: AppStrings.location,
+                            data: AppStrings.locationData,
+                            context: context,
+                          ),
+                          kGap30,
+                          SocialButtons(
+                            mainAxisAlignment: .start,
+                            isContact: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-
-            Expanded(flex: 3, child: ContactCard()),
-          ],
-        ),
-      ],
+          ),
+          kGap30,
+          Expanded(child: ContactCard()),
+        ],
+      ),
     );
   }
 }

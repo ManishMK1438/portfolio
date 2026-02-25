@@ -32,7 +32,7 @@ class AppStrings {
   static const skillsSummary =
       "The core technologies, tools, and methodologies I leverage to build high-performance, maintainable software.";
 
-  static const getInTouch = "Get in touch";
+  static const letsBuildTogether = "Let's build something amazing together";
   static const getInTouchSummary =
       "Whether you're looking to build a complex cross-platform application, discuss scalable software architecture, or just want to connect—I'd love to hear from you. Drop me a message and let's build something great.";
   static const contactInfo = "Contact Information";
@@ -59,7 +59,7 @@ class AppStrings {
       "Engineering elegant applications with a focus on seamless user experiences and robust software architecture.";
   static const copyright =
       "Copyright © 2026 Manish Kumar. All rights reserved.";
-  static const buildWith = "Built with Flutter and Firebase";
+  static const buildWith = "Built with Flutter, Firebase and Coffee.";
 
   static const portfolio = "Portfolio";
   static const availableForProjects = "Available for new projects";

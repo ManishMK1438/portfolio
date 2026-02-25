@@ -7,9 +7,8 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(30),
-      constraints: BoxConstraints(minHeight: 200),
-      color: primaryColor,
+      padding: const .symmetric(horizontal: kWebPadding, vertical: 50),
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: .spaceAround,
         crossAxisAlignment: .end,
@@ -25,9 +24,9 @@ class Footer extends StatelessWidget {
                   child: Text(
                     AppStrings.footerText,
                     style: context.textTheme.bodyMedium?.copyWith(
-                      color: kWhite.withValues(alpha: 0.6),
                       fontSize: 14,
                       fontWeight: .w200,
+                      color: descriptionTextColor.withValues(alpha: 0.8),
                     ),
                   ),
                 ),
@@ -40,18 +39,18 @@ class Footer extends StatelessWidget {
               Text(
                 AppStrings.copyright,
                 style: context.textTheme.bodyMedium?.copyWith(
-                  color: kWhite.withValues(alpha: 0.6),
                   fontSize: 14,
                   fontWeight: .w200,
+                  color: descriptionTextColor.withValues(alpha: 0.8),
                 ),
               ),
 
               Text(
                 AppStrings.buildWith,
                 style: context.textTheme.bodyMedium?.copyWith(
-                  color: kWhite.withValues(alpha: 0.6),
                   fontSize: 14,
                   fontWeight: .w200,
+                  color: descriptionTextColor.withValues(alpha: 0.8),
                 ),
               ),
             ],
