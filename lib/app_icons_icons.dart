@@ -26,4 +26,39 @@ class AppIcons {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData coreTech = IconData(
+    0xe801,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData architecture = IconData(
+    0xe802,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData backend = IconData(
+    0xe803,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData cloud = IconData(
+    0xe804,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData media = IconData(
+    0xe805,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData payment = IconData(
+    0xe806,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
+  static const IconData softSkills = IconData(
+    0xe807,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
 }

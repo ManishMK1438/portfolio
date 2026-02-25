@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
-import 'package:portfolio/core/exports/packages_export.dart';
 import 'package:portfolio/features/home/data/datasource/datasource.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
@@ -25,18 +24,18 @@ class SkillsSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min, // Prevents vertical stretching
           children: [
-            // --- HEADER ---
-            Row(
-              children: [
-                FaIcon(skill.icon, size: 24),
-                kGap10,
-                Text(
-                  skill.title,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ],
+            Container(
+              padding: .all(10),
+              decoration: BoxDecoration(
+                borderRadius: .all(.circular(8)),
+                color: skill.color.withValues(alpha: 0.1),
+              ),
+
+              child: Icon(skill.icon, size: 18, color: skill.color),
             ),
             kGap20,
+            Text(skill.title, style: Theme.of(context).textTheme.titleMedium),
+            kGap15,
 
             // --- SKILLS WRAP ---
             Wrap(
@@ -44,15 +43,13 @@ class SkillsSection extends StatelessWidget {
               runSpacing: 10.0, // Vertical space between lines
               children: skill.skills.map((skill) {
                 return Chip(
-                  backgroundColor: primaryLightColor.withValues(alpha: 0.5),
+                  backgroundColor: descriptionTextColor.withValues(alpha: 0.05),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(color: primaryLightColor, width: 1),
-                    borderRadius: .all(.circular(kBorderRadius16)),
+                    borderRadius: .all(.circular(4)),
                   ),
                   label: Text(skill),
-                  labelStyle: context.textTheme.labelSmall?.copyWith(
-                    color: primaryColor,
-                  ),
+                  labelStyle: context.textTheme.bodySmall,
                 );
               }).toList(),
             ),
@@ -65,24 +62,26 @@ class SkillsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: .start,
+      crossAxisAlignment: .center,
       mainAxisAlignment: .start,
+
       mainAxisSize: .min,
       children: [
         Text(AppStrings.skills, style: context.textTheme.headlineMedium),
         kGap10,
-        Text(AppStrings.skillsSummary, style: context.textTheme.bodyMedium),
-        kGap30,
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 200),
-          child: UniversalListView<SkillsEntity>.separated(
-            padding: .all(0),
-            scrollDirection: Axis.horizontal,
-            items: skillsList,
-            itemBuilder: (context, item, index) =>
-                _skillsWidget(skill: item, context: context),
-            separatorBuilder: (context, item, index) => kGap30,
+        Text(
+          AppStrings.skillsSummary,
+          style: context.textTheme.titleMedium?.copyWith(
+            color: descriptionTextColor,
+            fontWeight: .w200,
           ),
+        ),
+        kGap60,
+        UniversalGridView<SkillsEntity>.dynamic(
+          crossAxisCount: 4,
+          items: skillsList,
+          itemBuilder: (context, item, index) =>
+              _skillsWidget(skill: item, context: context),
         ),
       ],
     );

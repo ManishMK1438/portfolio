@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/app_icons_icons.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
-import 'package:portfolio/core/exports/packages_export.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 final List<ExperienceEntity> experienceData = [
@@ -150,53 +151,64 @@ final List<ProjectsEntity> projectsData = [
 
 final List<SkillsEntity> skillsList = [
   SkillsEntity(
-    title: "Mobile",
-    icon: FontAwesomeIcons.mobile,
+    color: Colors.blue,
+    title: "Core Technologies",
+    icon: AppIcons.coreTech,
+    skills: ["Flutter", "Dart", "Android", "iOS", "Web", "Windows", "Mac OS"],
+  ),
+  SkillsEntity(
+    title: "Architecture & State",
+    color: Colors.purple,
+    icon: AppIcons.architecture,
     skills: [
-      "Flutter",
-      "Dart",
-      "Android",
-      "iOS",
-      "Web",
       "Clean architecture",
-      "Bloc",
+      "BLoC",
+      "Riverpod",
+      "Hive",
+      "Shared preferences",
     ],
   ),
   SkillsEntity(
-    title: "Backend & APIs",
-    icon: FontAwesomeIcons.server,
-    skills: ["REST api", "Json", "Python", "FastAPI", "Web socket"],
+    color: Colors.green,
+    title: "Backend & API",
+    icon: AppIcons.backend,
+    skills: ["REST api", "JSON", "FastAPI", "Web sockets", "Python"],
   ),
   SkillsEntity(
-    title: "Realtime & media",
-    icon: FontAwesomeIcons.video,
-    skills: ["Agora SDK", "Video calling", "Live streaming", "Video player"],
+    title: "Firebase & Cloud",
+    color: Colors.orange,
+    icon: AppIcons.cloud,
+    skills: ["Firebase auth", "Firebase storage", "FCM", "Firestore", "AWS"],
   ),
   SkillsEntity(
-    title: "Cloud & services",
-    icon: FontAwesomeIcons.cloud,
+    title: "Media & Features",
+    color: Colors.red,
+    icon: AppIcons.media,
     skills: [
-      "Firebase auth",
-      "Firebase storage",
-      "FCM",
-      "Firestore",
-      "AWS",
+      "Agora",
+      "Video calling",
+      "Live streaming",
+      "Video player",
       "Third party logins",
     ],
   ),
   SkillsEntity(
-    title: "Payments & storage",
-    icon: FontAwesomeIcons.creditCard,
-    skills: ["Razorpay", "Stripe", "Hive", "Shared preferences"],
+    color: Colors.blue.shade900,
+    title: "Payments & Tools",
+    icon: AppIcons.payment,
+    skills: [
+      "Razorpay",
+      "Stripe",
+      "Android studio",
+      "Git/Github",
+      "VS Code",
+      "Docker",
+    ],
   ),
   SkillsEntity(
-    title: "Tools",
-    icon: FontAwesomeIcons.screwdriverWrench,
-    skills: ["Android studio", "Git", "Github", "VS Code", "Docker"],
-  ),
-  SkillsEntity(
+    color: Colors.cyan,
     title: "Soft skills",
-    icon: FontAwesomeIcons.brain,
+    icon: AppIcons.softSkills,
     skills: [
       "Leadership",
       "Problem solving",
