@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app_icons_icons.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
+import 'package:portfolio/features/home/presentation/screens/home_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -10,11 +11,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double? height;
   final List<Widget>? actions;
   final Widget? leadingWidget;
-  //final GlobalKey<ScaffoldState>? globalKey;
+  final VoidCallback onHomeTap;
+  final VoidCallback onAboutTap;
+  final VoidCallback onSkillsTap;
+  final VoidCallback onProjectsTap;
+  final VoidCallback onContactTap;
+  final PortfolioSection activeTab;
 
   const CustomAppBar({
     super.key,
     required this.title,
+    required this.onHomeTap,
+    required this.onAboutTap,
+    required this.onSkillsTap,
+    required this.onProjectsTap,
+    required this.onContactTap,
     this.leading = true,
     this.bottom,
     this.color = primaryColor,
@@ -22,15 +33,39 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingWidget,
     // this.globalKey,
     this.actions,
+    required this.activeTab,
   });
+
   ButtonStyle _buttonStyle({
     required BuildContext context,
-    // required String path,
+    required PortfolioSection section,
   }) {
     return TextButton.styleFrom(
+      overlayColor: activeTab == section
+          ? textButtonOverlayColor.shade300
+          : Colors.transparent,
       // Check our helper to decide the color
-      backgroundColor:
-          Colors.transparent, // Explicitly set transparent if not active
+      backgroundColor: activeTab == section
+          ? textButtonOverlayColor.shade300
+          : Colors.transparent, // Explicitly set transparent if not active
+    );
+  }
+
+  TextStyle? _textButtonStyle(
+    BuildContext context,
+    PortfolioSection selectedTab,
+  ) {
+    return context.textTheme.bodyMedium?.copyWith(
+      // THE FIX: Conditionally change the text color!
+      color: activeTab == selectedTab
+          ? Colors
+                .black // Or Colors.white if your background is dark
+          : descriptionTextColor,
+      // Optional: Make it bold when active
+      fontWeight: activeTab == selectedTab
+          ? FontWeight.bold
+          : FontWeight.normal,
+      fontSize: 14,
     );
   }
 
@@ -76,16 +111,58 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               children: [
                 TextButton(
-                  onPressed: () {
-                    //context.goNamed(AppRouteName.home);
-                  },
-                  style: _buttonStyle(context: context),
+                  onPressed: onHomeTap,
+                  style: _buttonStyle(
+                    context: context,
+                    section: PortfolioSection.home,
+                  ),
                   child: Text(
                     AppStrings.home,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: descriptionTextColor,
-                      fontSize: 14,
-                    ),
+                    style: _textButtonStyle(context, PortfolioSection.home),
+                  ),
+                ),
+                TextButton(
+                  onPressed: onAboutTap,
+                  style: _buttonStyle(
+                    context: context,
+                    section: PortfolioSection.about,
+                  ),
+                  child: Text(
+                    AppStrings.about,
+                    style: _textButtonStyle(context, PortfolioSection.about),
+                  ),
+                ),
+                TextButton(
+                  onPressed: onSkillsTap,
+                  style: _buttonStyle(
+                    context: context,
+                    section: PortfolioSection.skills,
+                  ),
+                  child: Text(
+                    AppStrings.skills,
+                    style: _textButtonStyle(context, PortfolioSection.skills),
+                  ),
+                ),
+                TextButton(
+                  onPressed: onProjectsTap,
+                  style: _buttonStyle(
+                    context: context,
+                    section: PortfolioSection.projects,
+                  ),
+                  child: Text(
+                    AppStrings.projects,
+                    style: _textButtonStyle(context, PortfolioSection.projects),
+                  ),
+                ),
+                TextButton(
+                  onPressed: onContactTap,
+                  style: _buttonStyle(
+                    context: context,
+                    section: PortfolioSection.contact,
+                  ),
+                  child: Text(
+                    AppStrings.contact,
+                    style: _textButtonStyle(context, PortfolioSection.contact),
                   ),
                 ),
               ],

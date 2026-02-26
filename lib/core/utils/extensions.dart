@@ -54,9 +54,11 @@ extension WidgetExtensions on Widget {
     double? blurRadius,
     double? spreadRadius,
     Offset? offset,
+    BoxShape? shape,
   }) {
     return Container(
       decoration: BoxDecoration(
+        shape: shape ?? BoxShape.rectangle,
         boxShadow: [
           BoxShadow(
             color: color ?? Colors.black.withValues(alpha: 0.15),

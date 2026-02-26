@@ -88,6 +88,7 @@ class BioSection extends StatelessWidget {
                         child: Image.asset(
                           AppImages.resume1,
                           height: 500,
+                          cacheWidth: 800,
                           // 2. Change to 'cover' to ensure the image perfectly fills the shadow box bounds
                           fit: BoxFit.cover,
                         ),

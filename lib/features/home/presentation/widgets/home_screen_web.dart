@@ -3,7 +3,8 @@ import 'package:portfolio/core/exports/app_exports.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class HomeScreenWeb extends StatelessWidget {
-  const HomeScreenWeb({super.key});
+  final PortfolioKeys sectionKeys;
+  const HomeScreenWeb({super.key, required this.sectionKeys});
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +20,24 @@ class HomeScreenWeb extends StatelessWidget {
               Flexible(child: IntroColumn()),
               Flexible(
                 child: Center(
+                  key: sectionKeys.home,
                   child: Image.asset(AppImages.introImage).addShadow(),
                 ),
               ),
             ],
           ).addPadding(padding: .symmetric(horizontal: kWebPadding)),
           kGap100,
-          BioSection(),
+          BioSection(key: sectionKeys.about),
           kGap80,
-          SkillsSection().addPadding(
-            padding: .symmetric(horizontal: kWebPadding),
-          ),
+          SkillsSection(
+            key: sectionKeys.skills,
+          ).addPadding(padding: .symmetric(horizontal: kWebPadding)),
           kGap80,
-          ProjectsSection(),
+          ProjectsSection(key: sectionKeys.projects),
           kGap90,
-          ContactMeSection().addPadding(
-            padding: .symmetric(horizontal: kWebPadding),
-          ),
+          ContactMeSection(
+            key: sectionKeys.contact,
+          ).addPadding(padding: .symmetric(horizontal: kWebPadding)),
           kGap100,
           Footer(),
         ],

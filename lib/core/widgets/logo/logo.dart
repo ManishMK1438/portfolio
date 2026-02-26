@@ -27,6 +27,7 @@ class Logo extends StatelessWidget {
       color: color ?? primaryColor,
       height: height,
       width: width,
+      cacheWidth: 800,
       fit: fit ?? BoxFit.contain,
     );
   }

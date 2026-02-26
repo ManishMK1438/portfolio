@@ -59,7 +59,10 @@ class SkillsSection extends StatelessWidget {
 
       mainAxisSize: .min,
       children: [
-        Text(AppStrings.skills, style: context.textTheme.headlineMedium),
+        Text(
+          AppStrings.technicalProficiency,
+          style: context.textTheme.headlineMedium,
+        ),
         kGap10,
         Text(
           AppStrings.skillsSummary,

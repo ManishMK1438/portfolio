@@ -8,10 +8,12 @@ class AppStrings {
   static const seniorFlutterDeveloper = "Senior Flutter Developer";
   static const desc =
       "Crafting scalable, responsive cross-platform apps with Flutter and Clean Architecture.";
+  static const contact = "Contact";
   static const contactMe = "Contact Me";
   static const email = "Email";
   static const viewProjects = "View Projects";
   static const aboutMe = "About me";
+  static const about = "About";
   static const bio = "Architecting Robust Mobile \nApplications";
   static const bioSummary =
       "Senior Flutter Developer with 4+ years of experience engineering scalable, high-performance iOS and Android applications. Specializing in Clean Architecture and BLoC, I build robust solutions across demanding domains—from dynamic stock platforms and real-time news to live Wi-Fi attendance tracking and critical security systems. I thrive on deep technical rigor, seamlessly integrating payment gateways, live video calling, and continuous background services.\n\nAs an Associate Team Lead, I drive end-to-end mobile project delivery. I take pride in owning sprint lifecycles, enforcing strict code quality governance, and mentoring developers. By collaborating closely with cross-functional teams, I ensure complex server-side integrations translate into intuitive, maintainable, and business-critical mobile interfaces.";
@@ -23,10 +25,12 @@ class AppStrings {
   static const marks = "CGPA: 8.0";
   static const experience = "Experience";
   static const background = "Background";
-  static const projects = "Featured Projects";
+  static const featuredProjects = "Featured Projects";
+  static const projects = "Projects";
   static const projectsSummary =
       "A curated selection of cross-platform applications I’ve architected and developed from the ground up.";
-  static const skills = "Technical Proficiency";
+  static const skills = "Skills";
+  static const technicalProficiency = "Technical Proficiency";
   static const coreSkills = "Core skills";
   static const softSkills = "Soft skills";
   static const skillsSummary =
@@ -77,4 +81,9 @@ class AppImages {
   static const introImage = "assets/images/intro_image.png";
   static const resume1 = "assets/images/resume1.jpg";
   static const resume2 = "assets/images/resume2.jpg";
+  static const brunhild = "assets/images/brunhild.png";
+  static const clockTales = "assets/images/clocktales.png";
+  static const noImage = "assets/images/no_image.jpg";
+  static const pasthi = "assets/images/pasthi.png";
+  static const richie = "assets/images/richie.png";
 }

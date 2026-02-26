@@ -42,7 +42,7 @@ final List<ProjectsEntity> projectsData = [
     playStore:
         "https://play.google.com/store/apps/details?id=com.goolean.clocktales&hl=en",
     appStore: "",
-    image: "",
+    image: AppImages.clockTales,
     technologies: [
       "Flutter",
       "Dart",
@@ -62,7 +62,7 @@ final List<ProjectsEntity> projectsData = [
     playStore:
         "https://play.google.com/store/apps/details?id=com.goolean.brunhild.brunhild&hl=en",
     appStore: "https://apps.apple.com/in/app/brunhild/id6744390104",
-    image: "",
+    image: AppImages.brunhild,
     technologies: [
       "Flutter",
       "Dart",
@@ -83,7 +83,7 @@ final List<ProjectsEntity> projectsData = [
     playStore:
         "https://play.google.com/store/apps/details?id=com.locgfx.pasthi&hl=en",
     appStore: "",
-    image: "",
+    image: AppImages.pasthi,
     technologies: [
       "Flutter",
       "Dart",
@@ -101,7 +101,7 @@ final List<ProjectsEntity> projectsData = [
         "https://play.google.com/store/apps/details?id=com.chasealpha.richie&hl=en",
     appStore:
         "https://apps.apple.com/in/app/richie-stocks-options-app/id1659006578",
-    image: "",
+    image: AppImages.richie,
     technologies: [
       "Flutter",
       "Dart",
@@ -119,7 +119,7 @@ final List<ProjectsEntity> projectsData = [
     description: "Live doctor consulting and appointment booking",
     playStore: "",
     appStore: "",
-    image: "",
+    image: AppImages.noImage,
     technologies: [
       "Flutter",
       "Dart",
@@ -137,7 +137,7 @@ final List<ProjectsEntity> projectsData = [
         "School management app - attendance marking, report cards, performance charts, time table and more",
     playStore: "",
     appStore: "",
-    image: "",
+    image: AppImages.noImage,
     technologies: [
       "Flutter",
       "Dart",

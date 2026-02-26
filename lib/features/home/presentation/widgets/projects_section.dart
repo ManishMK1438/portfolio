@@ -13,7 +13,22 @@ class ProjectsSection extends StatelessWidget {
     required int index,
   }) {
     // 1. Extract the Image into its own variable
-    final imageSection = Expanded(child: Image.asset(project.image));
+    final imageSection = Expanded(
+      child: ClipRRect(
+        borderRadius: .circular(kBorderRadius16),
+        clipBehavior: .hardEdge,
+        child: Image.asset(
+          project.image,
+          fit: BoxFit.cover,
+          cacheWidth: 800,
+          errorBuilder: (context, obj, stack) => Image.asset(
+            AppImages.noImage,
+            fit: BoxFit.cover,
+            cacheWidth: 800,
+          ),
+        ),
+      ),
+    );
 
     // 2. Extract the Details Column into its own variable
     final detailsSection = Expanded(
@@ -88,7 +103,10 @@ class ProjectsSection extends StatelessWidget {
         crossAxisAlignment: .start,
         mainAxisSize: .min,
         children: [
-          Text(AppStrings.projects, style: context.textTheme.headlineMedium),
+          Text(
+            AppStrings.featuredProjects,
+            style: context.textTheme.headlineMedium,
+          ),
           kGap15,
           Text(
             AppStrings.projectsSummary,

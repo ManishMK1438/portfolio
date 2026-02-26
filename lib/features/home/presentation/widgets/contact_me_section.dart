@@ -49,86 +49,107 @@ class ContactMeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: .all(48),
-      decoration: BoxDecoration(
-        color: primaryColor,
-        borderRadius: .circular(24),
-      ),
-      child: Row(
-        mainAxisAlignment: .start,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: .start,
-              children: [
-                Text(
-                  AppStrings.letsBuildTogether,
-                  style: context.textTheme.headlineMedium?.copyWith(
-                    fontWeight: .bold,
-                    color: Colors.white,
-                  ),
-                ),
-                kGap25,
-                Text(
-                  AppStrings.getInTouchSummary,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: Colors.white.withValues(alpha: 0.9),
-                  ),
-                ),
-                kGap30,
-                Row(
+    return Stack(
+      clipBehavior: Clip.hardEdge,
+      children: [
+        Container(
+          padding: .all(48),
+          decoration: BoxDecoration(
+            color: primaryColor,
+            borderRadius: .circular(24),
+          ),
+          child: Row(
+            mainAxisAlignment: .start,
+            children: [
+              Expanded(
+                child: Column(
                   crossAxisAlignment: .start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: .start,
-                        mainAxisAlignment: .start,
-                        children: [
-                          Text(
-                            AppStrings.contactInfo,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              color: Colors.white,
-                            ),
-                          ),
-                          kGap20,
-                          _contactWidget(
-                            icon: FontAwesomeIcons.envelope,
-                            text: AppStrings.email,
-                            data: AppStrings.emailData,
-                            context: context,
-                          ),
-                          kGap10,
-                          _contactWidget(
-                            icon: FontAwesomeIcons.phone,
-                            text: AppStrings.phone,
-                            data: AppStrings.phoneData,
-                            context: context,
-                          ),
-                          kGap10,
-                          _contactWidget(
-                            icon: FontAwesomeIcons.locationArrow,
-                            text: AppStrings.location,
-                            data: AppStrings.locationData,
-                            context: context,
-                          ),
-                          kGap30,
-                          SocialButtons(
-                            mainAxisAlignment: .start,
-                            isContact: true,
-                          ),
-                        ],
+                    Text(
+                      AppStrings.letsBuildTogether,
+                      style: context.textTheme.headlineMedium?.copyWith(
+                        fontWeight: .bold,
+                        color: Colors.white,
                       ),
+                    ),
+                    kGap25,
+                    Text(
+                      AppStrings.getInTouchSummary,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: Colors.white.withValues(alpha: 0.9),
+                      ),
+                    ),
+                    kGap30,
+                    Row(
+                      crossAxisAlignment: .start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: .start,
+                            mainAxisAlignment: .start,
+                            children: [
+                              Text(
+                                AppStrings.contactInfo,
+                                style: context.textTheme.titleMedium?.copyWith(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              kGap20,
+                              _contactWidget(
+                                icon: FontAwesomeIcons.envelope,
+                                text: AppStrings.email,
+                                data: AppStrings.emailData,
+                                context: context,
+                              ),
+                              kGap10,
+                              _contactWidget(
+                                icon: FontAwesomeIcons.phone,
+                                text: AppStrings.phone,
+                                data: AppStrings.phoneData,
+                                context: context,
+                              ),
+                              kGap10,
+                              _contactWidget(
+                                icon: FontAwesomeIcons.locationArrow,
+                                text: AppStrings.location,
+                                data: AppStrings.locationData,
+                                context: context,
+                              ),
+                              kGap30,
+                              SocialButtons(
+                                mainAxisAlignment: .start,
+                                isContact: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              kGap30,
+              Expanded(child: ContactCard()),
+            ],
           ),
-          kGap30,
-          Expanded(child: ContactCard()),
-        ],
-      ),
+        ),
+        Positioned(
+          bottom: -50,
+          left: -100,
+          child: SizedBox(
+            width: 500,
+            height: 500,
+          ).addShadow(color: Colors.white10, shape: .circle),
+        ),
+        Positioned(
+          top: -50,
+          right: -100,
+          child: SizedBox(
+            width: 500,
+            height: 500,
+          ).addShadow(color: Colors.white10, shape: .circle),
+        ),
+      ],
     );
   }
 }

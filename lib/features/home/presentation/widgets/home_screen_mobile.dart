@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/features/home/domain/entity/portfolio_keys.dart';
 
 class HomeScreenMobile extends StatelessWidget {
-  const HomeScreenMobile({super.key});
+  final PortfolioKeys sectionKeys;
+  const HomeScreenMobile({super.key, required this.sectionKeys});
 
   @override
   Widget build(BuildContext context) {

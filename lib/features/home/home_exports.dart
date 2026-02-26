@@ -1,5 +1,6 @@
 //domain
 export 'domain/entity/experience_entity.dart';
+export 'domain/entity/portfolio_keys.dart';
 export 'domain/entity/projects_entity.dart';
 export 'domain/entity/skills_entity.dart';
 //presentation

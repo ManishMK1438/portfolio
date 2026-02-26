@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 const primaryColor = Color(0xff2B6CEE);
 const secondaryGreenColor = Color(0xff3B9212);
 const primaryLightColor = Color(0xff5EC8F8);
-const textButtonOverlayColor = Color(0x4DFFFFFF);
+//const textButtonOverlayColor = Color(0x4DFFFFFF);
+const textButtonOverlayColor = Colors.grey;
 final lightScaffoldColor = Color(0xffFAFAFA);
 const descriptionTextColor = Color(0xff475569);
 
