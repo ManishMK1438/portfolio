@@ -3,7 +3,15 @@ import 'package:portfolio/core/exports/app_exports.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class IntroColumn extends StatelessWidget {
-  const IntroColumn({super.key});
+  final bool isDesktop;
+  final VoidCallback onProjectsTap;
+  final VoidCallback onContactTap;
+  const IntroColumn({
+    super.key,
+    this.isDesktop = true,
+    required this.onProjectsTap,
+    required this.onContactTap,
+  });
 
   Widget _available(BuildContext context) => Chip(
     shape: RoundedRectangleBorder(
@@ -12,7 +20,7 @@ class IntroColumn extends StatelessWidget {
     ),
     padding: .symmetric(vertical: 4, horizontal: 12),
     label: Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       children: [
         Icon(Icons.circle, size: 8, color: primaryColor),
         kGap5,
@@ -28,11 +36,12 @@ class IntroColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: .start,
+      crossAxisAlignment: isDesktop ? .start : .center,
       children: [
         _available(context),
         kGap30,
         Text.rich(
+          textAlign: isDesktop ? .start : .center,
           TextSpan(
             children: [
               TextSpan(
@@ -56,6 +65,7 @@ class IntroColumn extends StatelessWidget {
         kGap25,
         Text(
           AppStrings.introDescription,
+          textAlign: isDesktop ? .start : .center,
           style: context.textTheme.titleMedium?.copyWith(
             color: descriptionTextColor,
             fontWeight: .normal,
@@ -63,14 +73,18 @@ class IntroColumn extends StatelessWidget {
         ),
         kGap25,
         Row(
+          mainAxisAlignment: isDesktop ? .start : .center,
           children: [
-            PrimaryButton(text: AppStrings.contactMe, onTap: () {}),
+            PrimaryButton(text: AppStrings.contactMe, onTap: onContactTap),
             kGap10,
-            SecondaryButton(text: AppStrings.viewProjects, onTap: () {}),
+            SecondaryButton(
+              text: AppStrings.viewProjects,
+              onTap: onProjectsTap,
+            ),
           ],
         ),
         kGap10,
-        SocialButtons(mainAxisAlignment: .start),
+        SocialButtons(mainAxisAlignment: isDesktop ? .start : .center),
       ],
     );
   }

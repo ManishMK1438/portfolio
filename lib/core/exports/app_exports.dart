@@ -1,4 +1,5 @@
 //files and functions
+export 'package:portfolio/core/functions/helper_functions.dart';
 export 'package:portfolio/core/functions/platform_info.dart';
 export 'package:portfolio/core/themes/app_themes.dart';
 export 'package:portfolio/core/utils/app_font_sizes.dart';

@@ -24,11 +24,14 @@ class SocialButtons extends StatelessWidget {
       color: buttonColor,
     );*/
 
-    Widget button = GestureDetector(
+    Widget button = InkWell(
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(6),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.transparent,
+        ),
         child: iconWidget,
       ),
     );
@@ -58,7 +61,7 @@ class SocialButtons extends StatelessWidget {
             FontAwesomeIcons.linkedin,
             color: isContact ? Colors.white : primaryColor,
           ),
-          onPressed: () {},
+          onPressed: () => HelperFunctions.launchWebUrl(UrlDetails.linkedinUrl),
         ),
         kGap10,
         _buildSocialIcon(
@@ -66,7 +69,7 @@ class SocialButtons extends StatelessWidget {
             FontAwesomeIcons.github,
             color: isContact ? Colors.white : Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () => HelperFunctions.launchWebUrl(UrlDetails.githubUrl),
         ),
         kGap10,
         _buildSocialIcon(
@@ -74,7 +77,7 @@ class SocialButtons extends StatelessWidget {
             FontAwesomeIcons.envelope,
             color: isContact ? Colors.white : Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () => HelperFunctions.launchEmail(),
         ),
         kGap10,
         _buildSocialIcon(
@@ -83,7 +86,8 @@ class SocialButtons extends StatelessWidget {
             color: isContact ? Colors.white : Colors.red.shade900,
           ),
 
-          onPressed: () {},
+          onPressed: () =>
+              HelperFunctions.launchWebUrl(UrlDetails.instagramUrl),
         ),
       ],
     );

@@ -4,7 +4,8 @@ import 'package:portfolio/core/exports/packages_export.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class ContactMeSection extends StatelessWidget {
-  const ContactMeSection({super.key});
+  final bool isDesktop;
+  const ContactMeSection({super.key, this.isDesktop = true});
 
   Widget _contactWidget({
     required IconData icon,
@@ -47,6 +48,83 @@ class ContactMeSection extends StatelessWidget {
     );
   }
 
+  Widget _layoutBuilder(BuildContext context) {
+    final contactInfo = Column(
+      crossAxisAlignment: .start,
+      children: [
+        Text(
+          AppStrings.letsBuildTogether,
+          style: context.textTheme.headlineMedium?.copyWith(
+            fontWeight: .bold,
+            color: Colors.white,
+          ),
+        ),
+        kGap25,
+        Text(
+          AppStrings.getInTouchSummary,
+          style: context.textTheme.bodyMedium?.copyWith(
+            color: Colors.white.withValues(alpha: 0.9),
+          ),
+        ),
+        kGap30,
+        Row(
+          crossAxisAlignment: .start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: .start,
+                mainAxisAlignment: .start,
+                children: [
+                  Text(
+                    AppStrings.contactInfo,
+                    style: context.textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                  kGap20,
+                  _contactWidget(
+                    icon: FontAwesomeIcons.envelope,
+                    text: AppStrings.email,
+                    data: AppStrings.emailData,
+                    context: context,
+                  ),
+                  kGap10,
+                  _contactWidget(
+                    icon: FontAwesomeIcons.phone,
+                    text: AppStrings.phone,
+                    data: AppStrings.phoneData,
+                    context: context,
+                  ),
+                  kGap10,
+                  _contactWidget(
+                    icon: FontAwesomeIcons.locationArrow,
+                    text: AppStrings.location,
+                    data: AppStrings.locationData,
+                    context: context,
+                  ),
+                  kGap30,
+                  SocialButtons(mainAxisAlignment: .start, isContact: true),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+    if (isDesktop) {
+      return Row(
+        mainAxisAlignment: .start,
+        children: [
+          Expanded(child: contactInfo),
+          kGap30,
+          Expanded(child: ContactCard()),
+        ],
+      );
+    } else {
+      return Column(children: [contactInfo, kGap30, ContactCard()]);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -58,96 +136,27 @@ class ContactMeSection extends StatelessWidget {
             color: primaryColor,
             borderRadius: .circular(24),
           ),
-          child: Row(
-            mainAxisAlignment: .start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      AppStrings.letsBuildTogether,
-                      style: context.textTheme.headlineMedium?.copyWith(
-                        fontWeight: .bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    kGap25,
-                    Text(
-                      AppStrings.getInTouchSummary,
-                      style: context.textTheme.bodyMedium?.copyWith(
-                        color: Colors.white.withValues(alpha: 0.9),
-                      ),
-                    ),
-                    kGap30,
-                    Row(
-                      crossAxisAlignment: .start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: .start,
-                            mainAxisAlignment: .start,
-                            children: [
-                              Text(
-                                AppStrings.contactInfo,
-                                style: context.textTheme.titleMedium?.copyWith(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              kGap20,
-                              _contactWidget(
-                                icon: FontAwesomeIcons.envelope,
-                                text: AppStrings.email,
-                                data: AppStrings.emailData,
-                                context: context,
-                              ),
-                              kGap10,
-                              _contactWidget(
-                                icon: FontAwesomeIcons.phone,
-                                text: AppStrings.phone,
-                                data: AppStrings.phoneData,
-                                context: context,
-                              ),
-                              kGap10,
-                              _contactWidget(
-                                icon: FontAwesomeIcons.locationArrow,
-                                text: AppStrings.location,
-                                data: AppStrings.locationData,
-                                context: context,
-                              ),
-                              kGap30,
-                              SocialButtons(
-                                mainAxisAlignment: .start,
-                                isContact: true,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              kGap30,
-              Expanded(child: ContactCard()),
-            ],
-          ),
+          child: _layoutBuilder(context),
         ),
         Positioned(
           bottom: -50,
           left: -100,
-          child: SizedBox(
-            width: 500,
-            height: 500,
-          ).addShadow(color: Colors.white10, shape: .circle),
+          child: IgnorePointer(
+            child: SizedBox(
+              width: 500,
+              height: 500,
+            ).addShadow(color: Colors.white10, shape: .circle),
+          ),
         ),
         Positioned(
           top: -50,
           right: -100,
-          child: SizedBox(
-            width: 500,
-            height: 500,
-          ).addShadow(color: Colors.white10, shape: .circle),
+          child: IgnorePointer(
+            child: SizedBox(
+              width: 500,
+              height: 500,
+            ).addShadow(color: Colors.white10, shape: .circle),
+          ),
         ),
       ],
     );

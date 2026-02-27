@@ -47,6 +47,9 @@ dependencies:
   #routes and dependency injection
   go_router: ^17.1.0
 
+  #url and deep linking
+  url_launcher: ^6.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -4,7 +4,8 @@ import 'package:portfolio/features/home/data/datasource/datasource.dart';
 import 'package:portfolio/features/home/home_exports.dart';
 
 class SkillsSection extends StatelessWidget {
-  const SkillsSection({super.key});
+  final bool isDesktop;
+  const SkillsSection({super.key, this.isDesktop = true});
 
   Widget _skillsWidget({
     required SkillsEntity skill,
@@ -56,7 +57,6 @@ class SkillsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: .center,
       mainAxisAlignment: .start,
-
       mainAxisSize: .min,
       children: [
         Text(
@@ -66,18 +66,28 @@ class SkillsSection extends StatelessWidget {
         kGap10,
         Text(
           AppStrings.skillsSummary,
+          textAlign: isDesktop ? .start : .center,
           style: context.textTheme.titleMedium?.copyWith(
             color: descriptionTextColor,
             fontWeight: .w200,
           ),
         ),
         kGap60,
-        UniversalGridView<SkillsEntity>.dynamic(
-          crossAxisCount: 4,
-          items: skillsList,
-          itemBuilder: (context, item, index) =>
-              _skillsWidget(skill: item, context: context),
-        ),
+        isDesktop
+            ? UniversalGridView<SkillsEntity>.dynamic(
+                crossAxisCount: 4,
+                items: skillsList,
+                itemBuilder: (context, item, index) =>
+                    _skillsWidget(skill: item, context: context),
+              )
+            : UniversalListView<SkillsEntity>.separated(
+                padding: .all(0),
+                separatorBuilder: (context, item, index) => kGap20,
+                shrinkWrap: true,
+                items: skillsList,
+                itemBuilder: (context, item, index) =>
+                    _skillsWidget(skill: item, context: context),
+              ),
       ],
     );
   }

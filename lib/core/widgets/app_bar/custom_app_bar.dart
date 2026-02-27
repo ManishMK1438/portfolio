@@ -74,19 +74,33 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return ResponsiveLayout(
       // MOBILE: Shows the Drawer Menu Icon
       mobile: AppBar(
+        elevation: 0,
         backgroundColor: lightScaffoldColor,
+        scrolledUnderElevation:
+            0, // Disables the scroll-triggered shadow/color shift
+        surfaceTintColor:
+            Colors.transparent, // Removes the Material 3 color overlay
         title: Text(title, style: context.textTheme.titleMedium),
         // Flutter automatically shows the drawer icon if a Scaffold has a drawer
         leading: Builder(
           builder: (newContext) => IconButton(
-            icon: const Icon(Icons.menu, color: kWhite),
+            icon: const Icon(Icons.menu),
             onPressed: () => Scaffold.of(newContext).openDrawer(),
           ),
         ),
         actions: [
           SizedBox(
             width: 100,
-            child: PrimaryButton(text: AppStrings.downloadCV, onTap: () {}),
+            child: PrimaryButton(
+              text: AppStrings.downloadCV,
+              onTap: () {},
+              buttonStyle: ElevatedButton.styleFrom(
+                foregroundColor: lightButtonForegroundColor,
+                backgroundColor: lightButtonBackgroundColor,
+                textStyle: context.textTheme.bodySmall,
+                padding: .symmetric(vertical: 16),
+              ),
+            ),
           ),
           kGap10,
         ],

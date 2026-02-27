@@ -1,68 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
-import 'package:portfolio/core/exports/packages_export.dart';
-import 'package:portfolio/features/home/home_exports.dart';
 
 class BioSection extends StatelessWidget {
-  const BioSection({super.key});
+  const BioSection({super.key, this.isDesktop = true});
 
-  Widget _experienceWidget({
-    required ExperienceEntity experience,
-    required BuildContext context,
-  }) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 600),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: primaryLightColor),
-          borderRadius: .all(.circular(kBorderRadius16)),
+  final bool isDesktop;
+
+  Widget _image() {
+    return Align(
+      alignment: isDesktop
+          ? .centerLeft
+          : .center, // Keeps the image on the left side
+      child:
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              AppImages.resume1,
+              height: 500,
+              cacheWidth: 800,
+              // 2. Change to 'cover' to ensure the image perfectly fills the shadow box bounds
+              fit: BoxFit.cover,
+            ),
+          ).addShadow(
+            color: primaryColor.withValues(alpha: 0.2),
+            blurRadius: 400,
+            spreadRadius: 50,
+            offset: const Offset(0, 0),
+          ),
+    );
+  }
+
+  Widget _text(BuildContext context) {
+    return Column(
+      crossAxisAlignment: isDesktop ? .start : .center,
+      children: [
+        Text(
+          AppStrings.bio,
+          textAlign: isDesktop ? .start : .center,
+          style: context.textTheme.headlineLarge?.copyWith(fontSize: 36),
         ),
-        child: Column(
-          crossAxisAlignment: .start,
-          mainAxisAlignment: .spaceEvenly,
-          mainAxisSize: .min,
-          children: [
-            Row(
-              mainAxisAlignment: .start,
-              children: [
-                FaIcon(
-                  experience.heading == AppStrings.education
-                      ? FontAwesomeIcons.graduationCap
-                      : FontAwesomeIcons.suitcase,
-                ),
-                kGap10,
-                Text(
-                  experience.heading,
-                  style: context.textTheme.headlineSmall,
-                ),
-              ],
-            ),
-            // kGap10,
-            Text(experience.title, style: context.textTheme.titleSmall),
-            //kGap10,
-            Text(
-              experience.company,
-              style: context.textTheme.bodyMedium?.copyWith(
-                color: Colors.black54,
-              ),
-            ),
-            // kGap10,
-            Text(
-              experience.duration,
-              style: context.textTheme.bodyMedium?.copyWith(
-                color: Colors.black54,
-              ),
-            ),
-            // kGap10,
-            Text(
-              experience.location,
-              style: context.textTheme.bodyMedium?.copyWith(
-                color: Colors.black54,
-              ),
-            ),
-          ],
-        ).addPadding(padding: .all(kAppPadding)),
-      ),
+        kGap25,
+        Text(
+          AppStrings.bioSummary,
+          style: context.textTheme.bodyMedium?.copyWith(
+            color: descriptionTextColor,
+          ),
+        ),
+      ],
     );
   }
 
@@ -75,54 +59,15 @@ class BioSection extends StatelessWidget {
         crossAxisAlignment: .start,
         mainAxisSize: .min,
         children: [
-          Row(
-            children: [
-              Expanded(
-                // 1. Align prevents the Container from stretching horizontally!
-                child: Align(
-                  alignment:
-                      Alignment.centerLeft, // Keeps the image on the left side
-                  child:
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          AppImages.resume1,
-                          height: 500,
-                          cacheWidth: 800,
-                          // 2. Change to 'cover' to ensure the image perfectly fills the shadow box bounds
-                          fit: BoxFit.cover,
-                        ),
-                      ).addShadow(
-                        color: primaryColor.withValues(alpha: 0.2),
-                        blurRadius: 40,
-                        spreadRadius: 5,
-                        offset: const Offset(200, 0),
-                      ),
-                ),
-              ),
-              kGap50,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: .start,
+          isDesktop
+              ? Row(
                   children: [
-                    Text(
-                      AppStrings.bio,
-                      style: context.textTheme.headlineLarge?.copyWith(
-                        fontSize: 36,
-                      ),
-                    ),
-                    kGap25,
-                    Text(
-                      AppStrings.bioSummary,
-                      style: context.textTheme.bodyMedium?.copyWith(
-                        color: descriptionTextColor,
-                      ),
-                    ),
+                    Expanded(child: _image()),
+                    kGap50,
+                    Expanded(child: _text(context)),
                   ],
-                ),
-              ),
-            ],
-          ),
+                )
+              : Column(children: [_text(context), kGap50, _image()]),
         ],
       ),
     );

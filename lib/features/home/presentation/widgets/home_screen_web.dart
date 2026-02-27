@@ -4,7 +4,14 @@ import 'package:portfolio/features/home/home_exports.dart';
 
 class HomeScreenWeb extends StatelessWidget {
   final PortfolioKeys sectionKeys;
-  const HomeScreenWeb({super.key, required this.sectionKeys});
+  final VoidCallback onProjectsTap;
+  final VoidCallback onContactTap;
+  const HomeScreenWeb({
+    super.key,
+    required this.sectionKeys,
+    required this.onProjectsTap,
+    required this.onContactTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,12 @@ class HomeScreenWeb extends StatelessWidget {
           kGap100,
           Row(
             children: [
-              Flexible(child: IntroColumn()),
+              Flexible(
+                child: IntroColumn(
+                  onProjectsTap: onProjectsTap,
+                  onContactTap: onContactTap,
+                ),
+              ),
               Flexible(
                 child: Center(
                   key: sectionKeys.home,

@@ -71,7 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // Only update if the section actually changed to avoid unnecessary notifier triggers
     if (_activeTabNotifier.value != newSection) {
-      _activeTabNotifier.value = newSection;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _activeTabNotifier.value = newSection;
+      });
     }
   }
 
@@ -93,6 +95,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: ValueListenableBuilder<PortfolioSection>(
+        valueListenable: _activeTabNotifier,
+        builder: (context, activeTab, child) {
+          return CustomDrawer(
+            activeTab: activeTab,
+            onHomeTap: () => _onTabTapped(keys.home, PortfolioSection.home),
+            onAboutTap: () => _onTabTapped(keys.about, PortfolioSection.about),
+            onSkillsTap: () =>
+                _onTabTapped(keys.skills, PortfolioSection.skills),
+            onProjectsTap: () =>
+                _onTabTapped(keys.projects, PortfolioSection.projects),
+            onContactTap: () =>
+                _onTabTapped(keys.contact, PortfolioSection.contact),
+          );
+        },
+      ),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: ValueListenableBuilder<PortfolioSection>(
@@ -100,8 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, activeTab, child) {
             return CustomAppBar(
               title: AppStrings.portfolio,
-              activeTab:
-                  activeTab, // Pass the active tab to your CustomAppBar widget
+              activeTab: activeTab,
+              // Pass the active tab to your CustomAppBar widget
               onHomeTap: () => _onTabTapped(keys.home, PortfolioSection.home),
               onAboutTap: () =>
                   _onTabTapped(keys.about, PortfolioSection.about),
@@ -117,23 +135,43 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification) {
-          if (notification.metrics.pixels > 400) {
-            // 3. Update the value without triggering a global setState
-            if (!_showFabNotifier.value) _showFabNotifier.value = true;
-          } else {
-            if (_showFabNotifier.value) _showFabNotifier.value = false;
+          // 1. Evaluate if the FAB should be visible based on scroll depth
+          final bool shouldShowFab = notification.metrics.pixels > 400;
+
+          // 2. Only trigger an update if the state actually needs to change
+          if (_showFabNotifier.value != shouldShowFab) {
+            // 3. Queue the update safely after the current frame finishes building
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _showFabNotifier.value = shouldShowFab;
+            });
           }
 
+          // Check our active tab logic (ensure this method also uses addPostFrameCallback internally!)
           _updateActiveTabOnScroll();
+
           return false;
         },
         // Because there is no setState, this massive layout now only builds ONCE.
         child: PageStorage(
           bucket: _homeBucket,
           child: ResponsiveLayout(
-            mobile: HomeScreenMobile(key: scrollKey, sectionKeys: keys),
-            web: HomeScreenWeb(key: scrollKey, sectionKeys: keys),
-            tablet: HomeScreenTab(key: scrollKey, sectionKeys: keys),
+            mobile: HomeScreenMobile(
+              key: scrollKey,
+              sectionKeys: keys,
+              onProjectsTap: () =>
+                  _onTabTapped(keys.projects, PortfolioSection.projects),
+              onContactTap: () =>
+                  _onTabTapped(keys.contact, PortfolioSection.contact),
+            ),
+            web: HomeScreenWeb(
+              key: scrollKey,
+              sectionKeys: keys,
+              onProjectsTap: () =>
+                  _onTabTapped(keys.projects, PortfolioSection.projects),
+              onContactTap: () =>
+                  _onTabTapped(keys.contact, PortfolioSection.contact),
+            ),
+            //tablet: HomeScreenTab(key: scrollKey, sectionKeys: keys),
           ),
         ),
       ),

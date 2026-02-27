@@ -7,6 +7,7 @@ export 'domain/entity/skills_entity.dart';
 export 'presentation/widgets/bio_section.dart';
 export 'presentation/widgets/contact_card.dart';
 export 'presentation/widgets/contact_me_section.dart';
+export 'presentation/widgets/custom_drawer.dart';
 export 'presentation/widgets/footer.dart';
 export 'presentation/widgets/home_screen_mobile.dart';
 export 'presentation/widgets/home_screen_tab.dart';

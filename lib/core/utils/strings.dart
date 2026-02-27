@@ -87,3 +87,26 @@ class AppImages {
   static const pasthi = "assets/images/pasthi.png";
   static const richie = "assets/images/richie.png";
 }
+
+class UrlDetails {
+  UrlDetails._();
+
+  static const linkedinUrl =
+      'https://www.linkedin.com/in/manish-kumar-9076461a6/';
+  static const githubUrl = 'https://github.com/ManishMK1438';
+  static const instagramUrl = 'https://www.instagram.com/manish_mk3/';
+  static const emailAddress = AppStrings.emailData;
+
+  static const clockTalesPlayStore =
+      "https://play.google.com/store/apps/details?id=com.goolean.clocktales&hl=en";
+  static const brunhildPlayStore =
+      "https://play.google.com/store/apps/details?id=com.goolean.brunhild.brunhild&hl=en";
+  static const brunhildAppStore =
+      "https://apps.apple.com/in/app/brunhild/id6744390104";
+  static const pasthiPlayStore =
+      "https://play.google.com/store/apps/details?id=com.locgfx.pasthi&hl=en";
+  static const richiePlayStore =
+      "https://play.google.com/store/apps/details?id=com.chasealpha.richie&hl=en";
+  static const richieAppStore =
+      "https://apps.apple.com/in/app/richie-stocks-options-app/id1659006578";
+}
