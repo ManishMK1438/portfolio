@@ -63,7 +63,7 @@ class AppStrings {
       "Engineering elegant applications with a focus on seamless user experiences and robust software architecture.";
   static const copyright =
       "Copyright © 2026 Manish Kumar. All rights reserved.";
-  static const buildWith = "Built with Flutter, Firebase and Coffee.";
+  static const buildWith = "Built with Flutter, Supabase and Coffee.";
 
   static const portfolio = "Portfolio";
   static const availableForProjects = "Available for new projects";
@@ -109,4 +109,10 @@ class UrlDetails {
       "https://play.google.com/store/apps/details?id=com.chasealpha.richie&hl=en";
   static const richieAppStore =
       "https://apps.apple.com/in/app/richie-stocks-options-app/id1659006578";
+}
+
+class ENVStrings {
+  ENVStrings._();
+  static const supabaseUrl = "SUPABASE_URL";
+  static const supabaseAnonKey = "SUPABASE_ANON_KEY";
 }

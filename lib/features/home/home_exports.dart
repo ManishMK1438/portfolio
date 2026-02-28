@@ -1,9 +1,16 @@
 //domain
+//entity
+export 'domain/entity/about_me_entity.dart';
 export 'domain/entity/experience_entity.dart';
 export 'domain/entity/portfolio_keys.dart';
 export 'domain/entity/projects_entity.dart';
 export 'domain/entity/skills_entity.dart';
+//repository
+export 'domain/repository/profile_repository.dart';
+//usecase
+export 'domain/usecases/get_skills_usecase.dart';
 //presentation
+//widgets
 export 'presentation/widgets/bio_section.dart';
 export 'presentation/widgets/contact_card.dart';
 export 'presentation/widgets/contact_me_section.dart';

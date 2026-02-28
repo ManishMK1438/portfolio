@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app_icons_icons.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
 import 'package:portfolio/features/home/presentation/screens/home_screen.dart';
 
@@ -89,6 +88,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         actions: [
+          /*IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    AppIcons.theme,
+                    size: 18,
+                    color: descriptionTextColor,
+                  ),
+                ),
+                kGap10,*/
           SizedBox(
             width: 100,
             child: PrimaryButton(
@@ -184,7 +192,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
             Row(
               children: [
-                IconButton(
+                /*IconButton(
                   onPressed: () {},
                   icon: Icon(
                     AppIcons.theme,
@@ -192,7 +200,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     color: descriptionTextColor,
                   ),
                 ),
-                kGap10,
+                kGap10,*/
                 SizedBox(
                   width: 100,
                   child: PrimaryButton(

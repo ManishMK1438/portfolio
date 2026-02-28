@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/exports/app_exports.dart';
+import 'package:portfolio/core/exports/packages_export.dart';
 import 'package:portfolio/features/home/presentation/screens/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load the hidden environment variables
+  await dotenv.load(fileName: ".env");
+
+  // Initialize Supabase securely
+  await Supabase.initialize(
+    url: dotenv.env[ENVStrings.supabaseUrl]!,
+    anonKey: dotenv.env[ENVStrings.supabaseAnonKey]!,
+  );
   runApp(const MyApp());
 }
 
