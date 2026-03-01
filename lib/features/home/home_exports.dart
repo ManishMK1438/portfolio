@@ -7,11 +7,18 @@ export 'domain/entity/projects_entity.dart';
 export 'domain/entity/skills_entity.dart';
 //repository
 export 'domain/repository/profile_repository.dart';
+export 'domain/usecases/get_about_me_use_case.dart';
 //usecase
 export 'domain/usecases/get_skills_usecase.dart';
 //presentation
+//bloc
+export 'presentation/bloc/profile_bloc/profile_bloc.dart';
+//screens
+export 'presentation/screens/home_screen.dart';
+export 'presentation/widgets/bio_widgets/bio_error_widget.dart';
 //widgets
-export 'presentation/widgets/bio_section.dart';
+export 'presentation/widgets/bio_widgets/bio_section.dart';
+export 'presentation/widgets/bio_widgets/bio_shimmer.dart';
 export 'presentation/widgets/contact_card.dart';
 export 'presentation/widgets/contact_me_section.dart';
 export 'presentation/widgets/custom_drawer.dart';

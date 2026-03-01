@@ -53,6 +53,7 @@ dependencies:
 
   #security & state management
   flutter_bloc: ^9.1.1
+  bloc: ^9.2.0
   flutter_dotenv: ^6.0.0
 
   #database & functional programming

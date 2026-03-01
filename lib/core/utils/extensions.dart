@@ -15,6 +15,16 @@ extension UtilsGetter on BuildContext {
   double get bottomPadding => MediaQuery.of(this).viewInsets.bottom;
 }
 
+extension StringNullableExt on String? {
+  /// Returns true if the string is either null or contains only whitespace/is empty.
+  bool get isNullOrEmpty => this == null || this!.trim().isEmpty;
+
+  /// Returns the string if it has content, otherwise returns a fallback value.
+  String orFallback(String fallback) {
+    return isNullOrEmpty ? fallback : this!;
+  }
+}
+
 extension TextExtension on Text {
   Widget textScale({double? width, BoxFit? fit, AlignmentGeometry? alignment}) {
     return SizedBox(

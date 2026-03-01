@@ -50,20 +50,27 @@ class SupabaseDataSourceImpl implements SupabaseDataSource {
       final response = await _supabaseClient
           .from('about_me')
           .select()
-          .order('created_at', ascending: true);
+          .order('created_at', ascending: false)
+          .limit(1); // Optimization: only fetch what you need
 
+      if (response.isEmpty) {
+        // Return your static empty entity/model instead of throwing
+        return AboutMeModel.empty();
+      }
       try {
         return AboutMeModel.fromJson(response.single);
-      } catch (e) {
+      } catch (e, s) {
+        AppLogger.logError('Parsing exception', e, s);
         throw ParsingException(e.toString());
       }
-    } on PostgrestException catch (e) {
+    } on PostgrestException catch (e, s) {
+      AppLogger.logError('Postgres exception', e, s);
       throw ServerException(e.message);
-    } catch (e) {
+    } catch (e, s) {
       if (e is ParsingException) {
         rethrow;
       }
-
+      AppLogger.logError('Unknown exception', e, s);
       throw UnknownException(e.toString());
     }
   }

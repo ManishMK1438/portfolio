@@ -1,7 +1,10 @@
 //files and functions
+export 'package:portfolio/core/dependency_injection.dart';
 export 'package:portfolio/core/exceptions/app_exceptions.dart';
 export 'package:portfolio/core/functions/helper_functions.dart';
 export 'package:portfolio/core/functions/platform_info.dart';
+export 'package:portfolio/core/logger/app_logger.dart';
+export 'package:portfolio/core/logger/global_bloc_observer.dart';
 export 'package:portfolio/core/themes/app_themes.dart';
 export 'package:portfolio/core/utils/app_font_sizes.dart';
 export 'package:portfolio/core/utils/colors.dart';
